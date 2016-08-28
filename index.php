@@ -1,6 +1,6 @@
 <?php
-define('API_KEY', 'Your Token');
-$admin = '68747297';
+define('API_KEY', '216044626:AAGFZ0RKjSaEsk8KnzUifAp6lpJ30S8Qn-I');
+$admin = '46853604';
 function api($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
     $ch = curl_init();
@@ -59,7 +59,7 @@ if($u['message']['text'] and $banlist->num_rows == 0){
   $msg = $u['message']['message_id'];
   $text = $u['message']['text'];
   $chat_id = $u['message']['chat']['id'];
-  if($text == '/start' or $text == '/help' or $text == '/help@Arrow_robot'){
+  if($text == '/start' or $text == '/help' or $text == '/help@UncoRobot'){
     $check = $db->query('SELECT id FROM member WHERE id='.$chat_id);
     if($check->num_rows == 0){
       $db->query('INSERT INTO member (id) VALUES ('.$chat_id.')');
@@ -67,7 +67,7 @@ if($u['message']['text'] and $banlist->num_rows == 0){
     api('sendMessage',array(
       'chat_id'=>$chat_id,
       'text'=>"
-Hello I'm Arrow
+Hello I'm Unco
 
 Commands :
 
@@ -75,10 +75,10 @@ Commands :
 <b>2</b>> /echo [text]
 <b>3</b>> /ip [URL|ip]
 <b>4</b>> /imdb [name]
-<b>5</b>> /spotify [name track]
+<b>5</b>> /spotify [Track Name]
 <b>6</b>> /qr [text]
 <b>7</b>> /translate [text]      #text to fa
-<b>8</b>> /loc [name City]
+<b>8</b>> /loc [City Name]
 <b>9</b>> /calc [expression]
 <b>10</b>> /cat
 <b>11</b>> /tosticker     #by_reply
@@ -88,8 +88,8 @@ Commands :
       'reply_markup'=>json_encode(array(
         'inline_keyboard'=>array(
           array(
-            array('text'=>'Creator','url'=>'https://telegram.me/negative'),
-            array('text'=>'Channel','url'=>'https://telegram.me/taylor_team')
+            array('text'=>'Creator','url'=>'https://telegram.me/arshiahp'),
+            array('text'=>'Channel','url'=>'https://telegram.me/joinchat/Asrt5D812RwQi83mNlL_-A')
           ),
           array(
             array('text'=>'فارسی 🇮🇷','callback_data'=>'fa')
@@ -324,7 +324,7 @@ Commands :
     }
   }
   /*if($u['message']['new_chat_member']){
-    if($u['message']['from']['id'] != 68747297){
+    if($u['message']['from']['id'] != 46853604){
       $idc = $u['message']['chat']['id'];
       api('leaveChat',array(
         'chat_id'=>$idc
@@ -347,19 +347,19 @@ if($u['callback_query']){
       'chat_id'=>$chat_id,
       'message_id'=>$msg,
       'text'=>"
-سلام من ارو هستم
+سلام من آنکو هستم
 
 دستورات :
 
 <b>1</b>> /help
 <b>2</b>> /echo [متن]
-<b>3</b>> /ip [ادرس]
+<b>3</b>> /ip [آدرس]
 <b>4</b>> /imdb [اسم]
-<b>5</b>> /spotify [نام ترک]
+<b>5</b>> /spotify [نام ترَک]
 <b>6</b>> /qr [متن]
 <b>7</b>> /translate [متن]
 <b>8</b>> /loc [نام شهر]
-<b>9</b>> /calc [expression]
+<b>9</b>> /calc [عبارت مورد نظر]
 <b>10</b>> /cat
 <b>11</b>> /tosticker     #by_reply
 <b>12</b>> /tophoto       #by_reply
@@ -378,7 +378,7 @@ if($u['callback_query']){
       'chat_id'=>$chat_id,
       'message_id'=>$msg,
       'text'=>"
-Hello I'm Arrow
+Hello I'm Unco
 
 Commands :
 
@@ -386,10 +386,10 @@ Commands :
 <b>2</b>> /echo [text]
 <b>3</b>> /ip [URL|ip]
 <b>4</b>> /imdb [name]
-<b>5</b>> /spotify [name track]
+<b>5</b>> /spotify [Track Name]
 <b>6</b>> /qr [text]
 <b>7</b>> /translate [text]      #text to fa
-<b>8</b>> /loc [name City]
+<b>8</b>> /loc [City Name]
 <b>9</b>> /calc [expression]
 <b>10</b>> /cat
 <b>11</b>> /tosticker     #by_reply
@@ -399,8 +399,8 @@ Commands :
       'reply_markup'=>json_encode(array(
         'inline_keyboard'=>array(
           array(
-            array('text'=>'Creator','url'=>'https://telegram.me/negative'),
-            array('text'=>'Channel','url'=>'https://telegram.me/taylor_team')
+            array('text'=>'Creator','url'=>'https://telegram.me/arshiahp'),
+            array('text'=>'Channel','url'=>'https://telegram.me/joinchat/Asrt5D812RwQi83mNlL_-A')
           ),
           array(
             array('text'=>"فارسی 🇮🇷",'callback_data'=>'fa')
